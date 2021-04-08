@@ -13,22 +13,22 @@ const renderComponent = (container, template, space) => {
   container.insertAdjacentHTML(space, template);
 };
 
-const menuElement = document.querySelector('.trip-controls__navigation');
-
-renderComponent(menuElement, createMenuTemplate(), 'beforeend');
-
 
 const headerMainElement = document.querySelector('.trip-main');
+
+const menuElement = headerMainElement.querySelector('.trip-controls__navigation');
+
+renderComponent(menuElement, createMenuTemplate(), 'beforeend');
 
 renderComponent(headerMainElement, createInformationTemplate(), 'afterbegin');
 
 
-const infomationElement = document.querySelector('.trip-info');
+const infomationElement = headerMainElement.querySelector('.trip-info');
 
 renderComponent(infomationElement, createCostTemplate(), 'beforeend');
 
 
-const filtersElement = document.querySelector('.trip-controls__filters');
+const filtersElement = headerMainElement.querySelector('.trip-controls__filters');
 
 renderComponent(filtersElement, createFilterTemplate(), 'beforeend');
 
@@ -39,7 +39,7 @@ renderComponent(eventElement, createSortingTemplate(), 'beforeend');
 renderComponent(eventElement, createFormTemplate(), 'beforeend');
 
 
-const formElement = document.querySelector('.trip-events__list');
+const formElement = eventElement.querySelector('.trip-events__list');
 
 renderComponent(formElement, createEditingTemplate(), 'beforeend');
 
